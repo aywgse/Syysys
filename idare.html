@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Bot Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="file"], button {
+            padding: 10px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Telegram Bot Web Arayüzü</h1>
+    <p>Python dosyanızı yükleyin ve çalıştırmak için gönderin:</p>
+    <form id="uploadForm">
+        <input type="file" id="fileInput" accept=".py">
+        <button type="button" onclick="uploadFile()">Gönder</button>
+    </form>
+    <div id="result" style="margin-top: 20px;"></div>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const resultDiv = document.getElementById('result');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                resultDiv.textContent = "Lütfen bir dosya seçin.";
+                return;
+            }
+
+            // Basit olarak bir mesaj gösteriyoruz
+            resultDiv.textContent = "Dosya yüklendi: " + file.name;
+            // Gerçek Telegram API bağlantısı burada yapılabilir.
+        }
+    </script>
+</body>
+</html>
